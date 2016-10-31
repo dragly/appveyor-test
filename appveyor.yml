@@ -9,6 +9,8 @@ install:
   - ls C:\Qt\5.7
   - ls %QTDIR%\mkspecs
   - set PATH=%PATH%;%QTDIR%\bin
+  - ps: echo "[Paths]" > %QTDIR%\bin\qt.conf
+  - ps: echo "Prefix=.." >> %QTDIR%\bin\qt.conf
 before_build:
   - git submodule update --init --recursive
   - qmake -tp vc
