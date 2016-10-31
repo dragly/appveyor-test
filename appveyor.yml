@@ -25,6 +25,8 @@ install:
 before_build:
   - git submodule update --init --recursive
   - qmake -tp vc
+build_script:
+  - msbuild "C:\projects\appveyor-test\appveyor-test.vcxproj" /p:AppxPackageSigningEnabled=false /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   #- nmake
   #- nmake clean
   #- xcopy /s "%QTDIR%\qml" release
