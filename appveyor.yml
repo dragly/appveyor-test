@@ -12,6 +12,8 @@ install:
   - echo [Paths] > %QTDIR%\bin\qt.conf
   - echo Prefix=.. >> %QTDIR%\bin\qt.conf
   - cat %QTDIR%\bin\qt.conf
+  - choco install gnuwin32-sed.install
+  - sed -i 's/^[[:space:]]*QT_EDITION[[:space:]]*=.*$/QT_EDITION = OpenSource/' %QTDIR%\mkspecs\qconfig.pri
 before_build:
   - git submodule update --init --recursive
   - qmake -tp vc
