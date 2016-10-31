@@ -3,8 +3,8 @@ install:
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64
   - ps: $qtmodules = @("3d","base","declarative","graphicaleffects","imageformats","macextras","multimedia","quickcontrols","quickcontrols2","sensors","svg","tools","translations","xmlpatterns")
   - ps: foreach ($qtmodule in $qtmodules) {
-            curl -o qt5.7z https://download.qt.io/online/qtsdkrepository/windows_x86/winrt/qt5_57/qt.57.win64_msvc2015_winrt_x64/5.7.0-1qtbase-Windows-Windows_10-MSVC2015-WinRT-WinRT_10-X86_64.7z
-            7z.exe x qt5.7z -oC:\Qt\
+            curl -o qt5.7z https://download.qt.io/online/qtsdkrepository/windows_x86/winrt/qt5_57/qt.57.win64_msvc2015_winrt_x64/5.7.0-1qtbase-Windows-Windows_10-MSVC2015-WinRT-WinRT_10-X86_64.7z ;
+            7z.exe x qt5.7z -oC:\Qt\ ;
         }
   - set QTDIR=C:\Qt\5.7\winrt_x64_msvc2015
   - set PATH=%PATH%;%QTDIR%\bin
