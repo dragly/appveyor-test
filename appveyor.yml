@@ -2,10 +2,11 @@ os: Visual Studio 2015
 install:
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64
   #- ps: choco install curl
+  - ls C:\Qt\5.7
   - ps: curl -o qt5.7z https://download.qt.io/online/qtsdkrepository/windows_x86/winrt/qt5_57/qt.57.win64_msvc2015_winrt_x64/5.7.0-1qtbase-Windows-Windows_10-MSVC2015-WinRT-WinRT_10-X86_64.7z
   - ps: 7z.exe x qt5.7z -oC:\Qt\
   - set QTDIR=C:\Qt\5.7\winrt_x64_msvc2015
-  - ls C:\Qt
+  - ls C:\Qt\5.7
   - ls %QTDIR%
   - set PATH=%PATH%;%QTDIR%\bin
 before_build:
