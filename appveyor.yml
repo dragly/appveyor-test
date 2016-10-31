@@ -1,10 +1,17 @@
 os: Visual Studio 2015
 install:
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64
-  - ps: $qtmodules = @("3d","base","declarative","graphicaleffects","imageformats","macextras","multimedia","quickcontrols","quickcontrols2","sensors","svg","tools","translations","xmlpatterns")
+  - ps: $qtmodules = @("3d","base","declarative","graphicaleffects","imageformats","multimedia","quickcontrols","quickcontrols2","sensors","svg","tools","translations","xmlpatterns")
   - ps: foreach ($qtmodule in $qtmodules) {
             echo Downloading ${qtmodule};
             curl -o qt5.7z https://download.qt.io/online/qtsdkrepository/windows_x86/winrt/qt5_57/qt.57.win64_msvc2015_winrt_x64/5.7.0-1qt${qtmodule}-Windows-Windows_10-MSVC2015-WinRT-WinRT_10-X86_64.7z ;
+            7z.exe x -aoa -oC:\Qt\ qt5.7z;
+            rm qt5.7z ;
+        }
+  - ps: $qtextras = @("charts")
+  - ps: foreach ($qtmodule in $qtextras) {
+            echo Downloading ${qtmodule};
+            curl -o qt5.7z https://download.qt.io/online/qtsdkrepository/windows_x86/winrt/qt5_57/qt.57.qt${qtmodule}.win64_msvc2015_winrt_x64/5.7.0-1qt${qtmodule}-Windows-Windows_10-MSVC2015-WinRT-WinRT_10-X86_64.7z ;
             7z.exe x -aoa -oC:\Qt\ qt5.7z;
             rm qt5.7z ;
         }
