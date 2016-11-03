@@ -1,6 +1,6 @@
 os: Visual Studio 2015
 install:
-  - binarycreator
+  - C:\Qt\5.7\Tools\QtInstallerFramework\2.0\bin\binarycreator.exe
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64
   - ps: $qtmodules = @("3d","base","declarative","graphicaleffects","imageformats","multimedia","quickcontrols","quickcontrols2","sensors","svg","tools","translations","xmlpatterns")
   - ps: foreach ($qtmodule in $qtmodules) {
